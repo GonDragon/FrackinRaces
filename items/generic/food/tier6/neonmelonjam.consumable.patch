@@ -6,13 +6,12 @@
   { "op":"add",
 "path":"/effects/-",
 "value": [
-    { "effect" : "herbivorefood" },
-    { "effect" : "sugarfood" }
+    { "effect" : "fruit_dessert" }
   ]
   },
   {
     "op": "replace",
     "path": "/description",
-    "value": "Pearlpeas wrapped neatly in a wartweed bundle. ^green;Type: Herbivore^reset;"
+    "value": "Super-delicious neonmelon jam. ^green;Type: Herbivore^reset;"
   }
 ]

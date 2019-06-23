@@ -20,11 +20,11 @@
  ^green;Volcanic, Magma, Mountainous and Desert^reset; biomes increase your protection and health.
   
  ^orange;Weapons^reset;:
- Broadsword: +^green;20%^reset; damage
+ Broadsword/Drill: +^green;20%^reset; damage
  Broadsword:  Combos increase Physical Resistance per swing
     
  ^red;Weaknesses^reset;:
- Weak: ^red;50%^reset; Ice, -^reset;20%^reset; Energy"
+ Weak: ^red;50%^reset; Ice, ^red;20%^reset; Energy"
     }
 
 ]

@@ -4,8 +4,8 @@ function init()
     self.species = world.entitySpecies(entity.id())
     if not self.species then return else didit = true end
 
-    self.raceJson = root.assetJson("/scripts/raceEffects.config")
-    self.specialConfig = self.raceJson[self.species].specialConfig or nil
+    self.raceJson = root.assetJson("/species/lucario.raceeffect")
+    self.specialConfig = self.raceJson.specialConfig or nil
 
     if self.specialConfig then
         self.specialConfig = self.specialConfig.lucarioAuraBerserk or nil
@@ -17,7 +17,10 @@ function init()
 		self.healthRangeMiConfig = self.specialConfig.healthRangeMi or nil
 		self.healthRangeLoConfig = self.specialConfig.healthRangeLo or nil
     end
-
+	
+	self.powerMod = 1
+	self.protectionMod = 1
+	self.critMod = 0
     script.setUpdateDelta(10)
 end
 

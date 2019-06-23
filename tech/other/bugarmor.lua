@@ -22,6 +22,7 @@ function checkStance()
        animator.setParticleEmitterActive("shieldStance", false)
        animator.setParticleEmitterActive("powerStance", false)	    
        animator.setParticleEmitterActive("defenseStance", true)
+       animator.playSound("activate")
     elseif self.pressUp then
       self.active2 = 0
       self.active3 = 1
@@ -29,17 +30,19 @@ function checkStance()
        animator.setParticleEmitterActive("defenseStance", false)
        animator.setParticleEmitterActive("powerStance", false)	    
        animator.setParticleEmitterActive("shieldStance", true)
+       animator.playSound("activate2")
     elseif self.pressJump then
       self.active2 = 0
       self.active3 = 0
       self.active4 = 1    
        animator.setParticleEmitterActive("defenseStance", false)
        animator.setParticleEmitterActive("shieldStance", false)	    
-      animator.setParticleEmitterActive("powerStance", true)
+       animator.setParticleEmitterActive("powerStance", true)
+       animator.playSound("activate3")
     end 
-    local configBombDrop = { power = 0 }
-    world.spawnProjectile("activeStance", mcontroller.position(), entity.id(), {0, 0}, false, configBombDrop)
-    self.bombTimer = 1    
+    --local configBombDrop = { power = 0 }
+    --world.spawnProjectile("activeStance", mcontroller.position(), entity.id(), {0, 0}, false, configBombDrop)
+    self.bombTimer = 3   
 end
 
 function update(args)
@@ -76,7 +79,7 @@ function update(args)
 	      self.bombTimer = math.max(0, self.bombTimer - args.dt)
 	    end
 
-	    if self.pressDown or self.pressJump and self.active2== 1 then  --defense stance	    
+	    if self.pressDown or self.pressDown and self.active2== 1 then  --defense stance	    
 	      status.setPersistentEffects("bugarmor", {
 		{stat = "protection", effectiveMultiplier = 1.25},
 		{stat = "powerMultiplier", effectiveMultiplier = 0.75},
@@ -86,7 +89,7 @@ function update(args)
 	        checkStance()
 	      end
 	    end
-	    if self.pressUp or self.pressJump and self.active3== 1 then  -- shielding stance
+	    if self.pressUp or self.pressUp and self.active3== 1 then  -- shielding stance
 	      status.setPersistentEffects("bugarmor", {
 		{stat = "shieldBash", amount = 25},
 		{stat = "shieldStaminaRegenBlock", effectiveMultiplier = 0.5},
